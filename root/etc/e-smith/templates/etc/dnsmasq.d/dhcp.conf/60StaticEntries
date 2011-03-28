@@ -13,6 +13,8 @@
         my $MACAddress = $host->prop('MACAddress');
         next unless ( defined($MACAddress) && ($MACAddress ne ''));
 
+        my $Comment = $host->prop('Comment') || "";
+        $OUT .= "# Static dhcp host: $Comment\n";
         $OUT .= "dhcp-host=$MACAddress,$InternalIP\n";
     }
     undef;      # We need a return value
