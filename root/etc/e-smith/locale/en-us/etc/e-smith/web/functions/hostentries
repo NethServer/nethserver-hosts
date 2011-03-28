@@ -1,0 +1,270 @@
+<lexicon lang="en-us" params="lexicon_params()">
+    <!-- vim: ft=xml
+    -->
+    <entry>
+        <base>Hostnames and addresses</base>
+        <trans>
+            Hostnames and addresses
+        </trans>
+    </entry>
+    <entry>
+        <base>UNABLE_TO_OPEN_CONFIGDB</base>
+        <trans>Unable to open configuration database</trans>
+    </entry>
+    <entry>
+        <base>DNS_FORWARDER_ENABLED</base>
+        <trans>
+            A DNS forwarder has been configured. This means that all DNS
+            lookups will be handled by the DNS forwarder. Hostnames 
+            and addresses cannot be modified on this server while
+            a DNS forwarder is configured.
+        </trans>
+    </entry>
+    <entry>
+        <base>ADD_HOSTNAME</base>
+        <trans>
+            <![CDATA[
+            <a class="button-like" href="hostentries?page=0&page_stack=&Next=Next&wherenext=CreateModify">Add hostname</a>
+            ]]>
+        </trans>
+    </entry>
+    <entry>
+        <base>HOSTNAME</base>
+        <trans>
+            Hostname
+        </trans>
+    </entry>
+    <entry>
+        <base>HOSTTYPE</base>
+        <trans>
+            Location
+        </trans>
+    </entry>
+    <entry>
+        <base>LOCAL_IP</base>
+        <trans>
+            Local IP
+        </trans>
+    </entry>
+    <entry>
+        <base>ETHERNET_ADDRESS</base>
+        <trans>
+            Ethernet address
+        </trans>
+    </entry>
+    <entry>
+        <base>CURRENT_HOSTNAMES_FOR_DOMAIN</base>
+        <trans>
+            Current list of hostnames for {$domain}.
+        </trans>
+    </entry>
+    <entry>
+        <base>NO_HOSTNAMES_FOR_SERVICENAME</base>
+        <trans>
+            There are no hostnames in the system for {$serviceName}.
+        </trans>
+    </entry>
+    <entry>
+        <base>CURRENT_HOSTNAMES_FOR_LOCAL_DOMAIN</base>
+        <trans>
+            Current list of hostnames for {$localDomainName}
+        </trans>
+    </entry>
+    <entry>
+        <base>NO_HOSTNAMES_FOR_LOCAL_DOMAIN</base>
+        <trans>
+            There are no hostnames in the system for {$localDomainName}.
+        </trans>
+    </entry>
+    <entry>
+        <base>STATIC_HOST_MESSAGE</base>
+        <trans>
+            - This host represents your system name and cannot be modified
+            or removed.
+        </trans>
+    </entry>
+    <entry>
+        <base>CREATE_LOCAL_HOST_TITLE</base>
+        <trans>
+            Create a new hostname for this server</trans>
+    </entry>
+    <entry>
+        <base>HOSTNAME_VALIDATION_ERROR</base>
+        <trans>
+            Error: unexpected characters in host name: 
+            "{$HostName}". The host name should contain only 
+            letters, numbers, and hyphens and must start 
+            with a letter or a number.
+        </trans>
+    </entry>
+    <entry>
+        <base>HOSTNAME_LENGTH_ERROR</base>
+        <trans>
+            Error: account name {$HostName} is too long. The
+            maximum is 32 characters.
+        </trans>
+    </entry>
+    <entry>
+        <base>DOMAIN_VALIDATION_ERROR</base>
+        <trans>
+            Error: unexpected or missing characters in domain name 
+            {$DomainName}. The domain name should contain one or more 
+            letters, numbers, periods and minus signs. Did not create new 
+            domain.
+        </trans>
+    </entry>
+    <entry>
+        <base>HOSTNAME_EXISTS_ERROR</base>
+        <trans>
+            Error: account {$fullHostName} is an existing {$type} hostname.
+        </trans>
+    </entry>
+    <entry>
+        <base>SUCCESSFULLY_CREATED</base>
+        <trans>
+            Successfully created hostname.
+        </trans>
+    </entry>
+    <entry>
+        <base>HOSTNAME_DESCRIPTION</base>
+        <trans>
+            The hostname must contain only letters, numbers, and hyphens, 
+            and must start with a letter or number. 
+        </trans>
+    </entry>
+    <entry>
+        <base>LOCAL_IP_DESCRIPTION</base>
+        <trans>
+            The Local IP address is the IP address of another machine on
+            the local network. Please enter a valid IP address in the
+            format "aaa.bbb.ccc.ddd".
+        </trans>
+    </entry>
+    <entry>
+        <base>ETHERNET_ADDRESS_DESCRIPTION</base>
+        <trans>
+            The ethernet address is optional and causes the DHCP server to
+            statically bind the local IP address to the computer with this
+            ethernet address.  If specified, it must be of the form
+            "AA:BB:CC:DD:EE:FF" and must contain only the numbers 0-9 and
+            the letters A-F.
+        </trans>
+    </entry>
+    <entry>
+        <base>CREATE_LOCAL_HOST_TITLE</base>
+        <trans>
+            Create a new hostname referring to a local host.
+        </trans>
+    </entry>
+    <entry>
+        <base>DIDNT_ENTER_LOCAL_IP</base>
+        <trans>
+            Error: You did not specify a Local IP address.  IP
+            addresses must contain only numbers and periods and
+            be in the form "aaa.bbb.ccc.ddd".  Did not create hostname.
+        </trans>
+    </entry>
+    <entry>
+        <base>IP_VALIDATION_ERROR</base>
+        <trans>
+            Error: IP Address {$InternalIP} is
+            invalid. IP Addresses must contain only numbers and periods                    and be in the form "aaa.bbb.ccc.ddd". Did not create hostname.
+        </trans>
+    </entry>
+    <entry>
+        <base>MAC_ADDRESS_VALIDATION_ERROR</base>
+        <trans>
+            Error: Ethernet address {$MACAddress}
+            is invalid.  Ethernet addresses must be in the
+            form "AA:BB:CC:DD:EE:FF" and only contain the
+            numbers 0-9 and the letters A-F. Did not create
+            hostname.
+        </trans>
+    </entry>
+    <entry>
+        <base>CREATE_REMOTE_HOST_TITLE</base>
+        <trans>
+            Create a new hostname referring to a remote host
+        </trans>
+    </entry>
+    <entry>
+        <base>CREATE_TITLE</base>
+        <trans>
+            Create or modify hostname
+        </trans>
+    </entry>
+    <entry>
+        <base>LOCAL_PAGE_DESCRIPTION</base>
+        <trans>
+            Please enter the following additional details for a local
+            host:
+        </trans>
+    </entry>
+    <entry>
+        <base>REMOTE_PAGE_DESCRIPTION</base>
+        <trans>
+            Please enter the following additional details for a remote
+            host:
+        </trans>
+    </entry>
+    <entry>
+        <base>SUCCESSFULLY_DELETED</base>
+        <trans>
+            Successfully deleted host.
+        </trans>
+    </entry>
+    <entry>
+        <base>SUCCESSFULLY_MODIFIED</base>
+        <trans>
+            Successfully modified host.
+        </trans>
+    </entry>
+    <entry>
+        <base>REMOVE_PAGE_DESCRIPTION</base>
+        <trans>
+            <![CDATA[
+            You are about to remove the hostname "{$hostname}.{$domain}".
+        </p>
+        <p>
+            <b>Are you sure you wish to remove this hostname?</b>
+            ]]>
+        </trans>
+    </entry>
+    <entry>
+        <base>CONFIRM_DESCRIPTION</base>
+        <trans>
+            Please confirm the following details.
+        </trans>
+    </entry>
+    <entry>
+        <base>NO_HOSTS_FOR_THIS_DOMAIN</base>
+        <trans>
+            There are no hosts for this domain.
+        </trans>
+    </entry>
+    <entry>
+        <base>ADDR_IN_DHCP_RANGE</base>
+        <trans>Address is inside the DHCP assigned dynamic range</trans>
+    </entry>
+    <entry>
+        <base>ERROR_WHILE_CREATING_HOST</base>
+        <trans>Error occurred while creating hostname.</trans>
+    </entry>
+    <entry>
+        <base>ERROR_WHILE_MODIFYING_HOST</base>
+        <trans>Error occurred while modifying hostname.</trans>
+    </entry>
+    <entry>
+        <base>ERROR_WHILE_DELETING_HOST</base>
+        <trans>Error occurred while deleting hostname.</trans>
+    </entry>
+    <entry>
+        <base>ERR_IP_IS_LOCAL_OR_GATEWAY</base>
+        <trans>Error: IP cannot be server IP or Gateway IP.</trans>
+    </entry>
+    <entry>
+        <base>ERR_IP_NOT_LOCAL</base>
+        <trans>Error: This IP address is not on any of our local
+            networks.</trans>
+    </entry>
+</lexicon>

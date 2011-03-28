@@ -1,0 +1,55 @@
+#!/usr/bin/perl -w
+# This script creates the symlinks needed by this RPM
+# Specific support exists to create symlinks within e-smith web "panels"
+# and for links from named "events" directories into the "actions" directory
+
+use strict;
+use esmith::Build::CreateLinks  qw(:all);
+
+#--------------------------------------------------
+# functions for manager panel
+#--------------------------------------------------
+my $panel = "manager";
+
+panel_link("hostentries", $panel);
+
+#--------------------------------------------------
+# link in the appropriate actions
+#--------------------------------------------------
+my $event;
+
+foreach $event ( qw(host-create host-delete host-modify) )
+{
+    safe_symlink("restart", "root/etc/e-smith/events/$event/services2adjust/dhcpd");
+    safe_symlink("sigusr1", "root/etc/e-smith/events/$event/services2adjust/tinydns");
+    safe_symlink("sigterm", "root/etc/e-smith/events/$event/services2adjust/dnscache");
+}
+
+#--------------------------------------------------
+# actions for bootstrap-console-save event
+#--------------------------------------------------
+$event = "bootstrap-console-save";
+
+event_link("conf-hostsdb", $event , "03");
+event_link("purge-domain", $event, "04");
+
+#--------------------------------------------------
+# actions for console-save event
+#--------------------------------------------------
+$event = "console-save";
+
+event_link("conf-hostsdb", $event , "04");
+
+#--------------------------------------------------
+# actions for domain-create event
+#--------------------------------------------------
+$event = "domain-create";
+
+event_link("create-default-hosts", $event, "04");
+
+#--------------------------------------------------
+# actions for domain-delete event
+#--------------------------------------------------
+$event = "domain-delete";
+
+event_link("purge-domain", $event, "04");
