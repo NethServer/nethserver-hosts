@@ -8,20 +8,12 @@
     foreach $host ($hdb->hosts)
     {
         my $InternalIP = $host->prop('InternalIP');
-	next unless (defined($InternalIP) && ($InternalIP ne ''));
+        next unless (defined($InternalIP) && ($InternalIP ne ''));
 
         my $MACAddress = $host->prop('MACAddress');
-	next unless ( defined($MACAddress) && ($MACAddress ne ''));
+        next unless ( defined($MACAddress) && ($MACAddress ne ''));
 
-        my $Filename = $host->prop('Filename');
-
-   	$OUT .= "\n";
-	$OUT .= "host " . $host->key . " \{\n";
-	defined($Filename) and $OUT .= "    filename \"$Filename\";\n";
-	$OUT .= "    hardware ethernet $MACAddress;\n";
-	$OUT .= "    fixed-address $InternalIP;\n";
-	$OUT .= "\}";
-	$OUT .= "\n";
+        $OUT .= "dhcp-host=$MACAddress,$InternalIP\n";
     }
-    undef;	# We need a return value
+    undef;      # We need a return value
 }

@@ -20,9 +20,7 @@ my $event;
 
 foreach $event ( qw(host-create host-delete host-modify) )
 {
-    safe_symlink("restart", "root/etc/e-smith/events/$event/services2adjust/dhcpd");
-    safe_symlink("sigusr1", "root/etc/e-smith/events/$event/services2adjust/tinydns");
-    safe_symlink("sigterm", "root/etc/e-smith/events/$event/services2adjust/dnscache");
+    safe_symlink("reload", "root/etc/e-smith/events/$event/services2adjust/dnsmasq");
 }
 
 #--------------------------------------------------
