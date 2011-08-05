@@ -60,5 +60,5 @@ safe_symlink("reload", "root/etc/e-smith/events/$event/services2adjust/dnsmasq")
 #--------------------------------------------------
 # actions for e-smith-hosts-update
 #--------------------------------------------------
-$event = "e-smith-hosts-update";
+$event = "nethserver-hosts-update";
 templates2events("/etc/hosts", $event);
