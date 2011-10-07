@@ -7,13 +7,6 @@ use strict;
 use esmith::Build::CreateLinks  qw(:all);
 
 #--------------------------------------------------
-# functions for manager panel
-#--------------------------------------------------
-my $panel = "manager";
-
-panel_link("hostentries", $panel);
-
-#--------------------------------------------------
 # link in the appropriate actions
 #--------------------------------------------------
 my $event;
