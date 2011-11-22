@@ -60,4 +60,5 @@ templates2events("/etc/hosts", $event);
 #--------------------------------------------------
 # actions for dhcp-reservation validator
 #--------------------------------------------------
-validator_link("ip-not-reserved-local", $event, "20");
+$validator = 'dhcp-reservation';
+validator_link("ip-not-reserved-local", $validator, "20");
