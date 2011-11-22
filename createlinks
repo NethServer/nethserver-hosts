@@ -55,3 +55,9 @@ safe_symlink("reload", "root/etc/e-smith/events/$event/services2adjust/dnsmasq")
 #--------------------------------------------------
 $event = "nethserver-hosts-update";
 templates2events("/etc/hosts", $event);
+
+
+#--------------------------------------------------
+# actions for dhcp-reservation validator
+#--------------------------------------------------
+validator_link("ip-not-reserved-local", $event, "20");
