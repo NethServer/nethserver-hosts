@@ -21,36 +21,19 @@ namespace NethServer\Module;
  */
 
 /**
- * iBays management module
- * 
- * @author Giacomo Sanchietti <giacomo@nethesis.it>
+ * Implementation of DNS and DHCP module. The module use accounts db and configure dnsmasq.
  */
-class SharedFolder extends \Nethgui\Controller\TableController
+class Hosts extends \Nethgui\Controller\TabsController
 {
-
     protected function initializeAttributes(\Nethgui\Module\ModuleAttributesInterface $base)
     {
-        return \Nethgui\Module\SimpleModuleAttributesProvider::extendModuleAttributes($base, 'Management', 30);
+        return \Nethgui\Module\SimpleModuleAttributesProvider::extendModuleAttributes($base, 'Configuration', 50);
     }
 
     public function initialize()
     {
-        $columns = array(
-            'Key',
-            'Name',
-            'Actions'
-        );
-
-        $this
-            ->setTableAdapter($this->getPlatform()->getTableAdapter('accounts', 'ibay'))
-            ->setColumns($columns)
-            ->addTableAction(new SharedFolder\Modify('create'))
-            ->addTableAction(new \Nethgui\Controller\Table\Help('Help'))
-            ->addRowAction(new SharedFolder\Modify('update'))
-            ->addRowAction(new SharedFolder\Modify('delete'))
-        ;
         parent::initialize();
+        $this->loadChildren(array('*\Alias', '*\Dns', '*\Dhcp'));
     }
 
 }
-
