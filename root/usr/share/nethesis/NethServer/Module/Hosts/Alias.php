@@ -53,7 +53,7 @@ class Alias extends \Nethgui\Controller\TableController
         parent::initialize();
     }
 
-    public function onParametersSaved(\Nethgui\Module\ModuleInterface $currentAction, $changes)
+    public function onParametersSaved(\Nethgui\Module\ModuleInterface $currentAction, $changes, $parameters)
     {
         $this->getPlatform()->signalEvent(sprintf('host-%s@post-process', $currentAction->getIdentifier()));
     }
