@@ -1,61 +1,13 @@
-#!/usr/bin/perl -w
-# This script creates the symlinks needed by this RPM
-# Specific support exists to create symlinks within e-smith web "panels"
-# and for links from named "events" directories into the "actions" directory
+#!/usr/bin/perl
 
 use strict;
 use esmith::Build::CreateLinks  qw(:all);
 
-#--------------------------------------------------
-# link in the appropriate actions
-#--------------------------------------------------
-my $event;
+event_actions('domain-create',
+	      'nethserver-hosts-fill-domain' => '04');
 
-foreach $event ( qw(host-create host-delete host-modify) )
-{
-    safe_symlink("reload", "root/etc/e-smith/events/$event/services2adjust/dnsmasq");
-    templates2events("/etc/hosts", $event);
-}
-
-#--------------------------------------------------
-# actions for bootstrap-console-save event
-#--------------------------------------------------
-$event = "bootstrap-console-save";
-
-event_link("conf-hostsdb", $event , "03");
-event_link("purge-domain", $event, "04");
-
-#--------------------------------------------------
-# actions for console-save event
-#--------------------------------------------------
-$event = "console-save";
-
-event_link("conf-hostsdb", $event , "04");
-
-#--------------------------------------------------
-# actions for domain-create event
-#--------------------------------------------------
-$event = "domain-create";
-
-event_link("create-default-hosts", $event, "04");
-templates2events("/etc/hosts", $event);
-safe_symlink("reload", "root/etc/e-smith/events/$event/services2adjust/dnsmasq");
-
-#--------------------------------------------------
-# actions for domain-delete event
-#--------------------------------------------------
-$event = "domain-delete";
-
-event_link("purge-domain", $event, "04");
-templates2events("/etc/hosts", $event);
-safe_symlink("reload", "root/etc/e-smith/events/$event/services2adjust/dnsmasq");
-
-#--------------------------------------------------
-# actions for e-smith-hosts-update
-#--------------------------------------------------
-$event = "nethserver-hosts-update";
-templates2events("/etc/hosts", $event);
-
+event_actions('domain-delete',
+	      'nethserver-hosts-flush-domain' => '04');
 
 #--------------------------------------------------
 # actions for dhcp-reservation validator
