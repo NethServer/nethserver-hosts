@@ -33,7 +33,7 @@ class Hosts extends \Nethgui\Controller\TabsController
     public function initialize()
     {
         parent::initialize();
-        $this->loadChildren(array('*\Alias', '*\Dns', '*\Dhcp'));
+        $this->loadChildrenDirectory();
     }
 
 }
