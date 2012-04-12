@@ -10,11 +10,5 @@ event_actions('domain-create',
 event_actions('domain-delete',
 	      'nethserver-hosts-flush-domain' => '04');
 
-#--------------------------------------------------
-# actions for dhcp-reservation validator
-#--------------------------------------------------
-my $validator = 'dhcp-reservation';
-validator_link("ip-not-reserved-local", $validator, "20");
-
 # Create an empty nethserver-hosts-update event:
 File::Path::make_path('root/etc/e-smith/events/nethserver-hosts-update');
