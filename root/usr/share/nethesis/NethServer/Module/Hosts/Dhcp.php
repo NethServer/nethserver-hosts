@@ -32,15 +32,15 @@ class Dhcp extends \Nethgui\Controller\TableController
     {
         $columns = array(
             'Key',
-            '0',
-            '1',
+            'IPAddress',
+            'MACAddress',
             'Actions',
         );
 
         $parameterSchema = array(
             array('hostname', Validate::HOSTNAME, \Nethgui\Controller\Table\Modify::KEY),
-            array('IPAddress', Validate::IPv4, \Nethgui\Controller\Table\Modify::FIELD, '0'), // map 'InternalIP' parameter to '0' column
-            array('MACAddress', Validate::MACADDRESS, \Nethgui\Controller\Table\Modify::FIELD, '1'), #MAC validation
+            array('IPAddress', Validate::IPv4, \Nethgui\Controller\Table\Modify::FIELD), 
+            array('MACAddress', Validate::MACADDRESS, \Nethgui\Controller\Table\Modify::FIELD), 
             array('HostType', '/^Local$/', \Nethgui\Controller\Table\Modify::FIELD),
         );
 

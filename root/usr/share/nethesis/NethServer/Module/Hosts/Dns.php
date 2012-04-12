@@ -32,13 +32,13 @@ class Dns extends \Nethgui\Controller\TableController
     {
         $columns = array(
             'Key',
-            '0',
+            'IPAddress',
             'Actions',
         );
 
         $parameterSchema = array(
             array('hostname', Validate::HOSTNAME, \Nethgui\Controller\Table\Modify::KEY),
-            array('IPAddress', Validate::IPv4, \Nethgui\Controller\Table\Modify::FIELD, '0'), // map 'InternalIP' parameter to '0' column
+            array('IPAddress', Validate::IPv4, \Nethgui\Controller\Table\Modify::FIELD),
             array('HostType', '/^Local$|^Remote$/', \Nethgui\Controller\Table\Modify::FIELD),
         );
 
