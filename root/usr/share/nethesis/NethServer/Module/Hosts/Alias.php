@@ -55,7 +55,11 @@ class Alias extends \Nethgui\Controller\TableController
 
     public function onParametersSaved(\Nethgui\Module\ModuleInterface $currentAction, $changes, $parameters)
     {
-        $this->getPlatform()->signalEvent(sprintf('host-%s@post-process', $currentAction->getIdentifier()));
+        $actionName = $currentAction->getIdentifier();
+        if($actionName === 'update') {
+            $actionName = 'modify';
+        }        
+        $this->getPlatform()->signalEvent(sprintf('host-%s@post-process', $actionName));
     }
 
 }

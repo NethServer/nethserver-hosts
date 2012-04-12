@@ -1,6 +1,6 @@
 <?php
 
-$L['Hosts_Title'] = 'Hosts management';
+$L['Hosts_Title'] = 'Host names';
 $L['Alias_Title'] = 'Server alias';
 $L['Dns_Title'] = 'DNS';
 $L['Dhcp_Title'] = 'DHCP reservation';
