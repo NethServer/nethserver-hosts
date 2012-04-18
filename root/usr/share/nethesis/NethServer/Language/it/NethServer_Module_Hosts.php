@@ -19,8 +19,10 @@ $L['host-delete_success'] = 'Eliminazione host effettuata con successo';
 $L['host-modify_failure'] = 'Modifica host fallita';
 $L['host-delete_failure'] = 'Eliminazione host fallita';
 
-
 $L['Empty table'] = 'Non hai ancora creato alcuna DHCP reservation';
 $L['Hosts_Tags'] = 'gestione host ip indirizzi dinamici riserva reservation mac alias dominio hostname';
+
+$L['Comment_label'] = 'Descrizione';
+
 
 

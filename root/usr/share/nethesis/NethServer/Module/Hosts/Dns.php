@@ -33,20 +33,22 @@ class Dns extends \Nethgui\Controller\TableController
         $columns = array(
             'Key',
             'IPAddress',
+            'Comment',
             'Actions',
         );
 
         $parameterSchema = array(
             array('hostname', Validate::HOSTNAME_FQDN, \Nethgui\Controller\Table\Modify::KEY),
             array('IPAddress', Validate::IPv4, \Nethgui\Controller\Table\Modify::FIELD),
-            array('HostType', '/^Remote$/', \Nethgui\Controller\Table\Modify::FIELD),
+            array('Description', Validate::ANYTHING, \Nethgui\Controller\Table\Modify::FIELD, 'Comment'),
+            array('HostType', '/^Remote$/', \Nethgui\Controller\Table\Modify::FIELD),            
         );
 
         $this
             ->setTableAdapter($this->getPlatform()->getTableAdapter('hosts', 'host', array('HostType' => "/^Remote$/")))
             ->setColumns($columns)
-            ->addRowAction(new \Nethgui\Controller\Table\Modify('update', $parameterSchema, 'NethServer\Template\Hosts\Dns')) #Attention: this template is from NethServer directory
-            ->addRowAction(new \Nethgui\Controller\Table\Modify('delete', $parameterSchema, 'Nethgui\Template\Table\Delete')) #Attention: this template is from NethGui directory
+            ->addRowAction(new \Nethgui\Controller\Table\Modify('update', $parameterSchema, 'NethServer\Template\Hosts\Dns'))
+            ->addRowAction(new \Nethgui\Controller\Table\Modify('delete', $parameterSchema, 'Nethgui\Template\Table\Delete')) // Standard DELETE template
             ->addTableAction(new \Nethgui\Controller\Table\Modify('create', $parameterSchema, 'NethServer\Template\Hosts\Dns'))
             ->addTableAction(new \Nethgui\Controller\Table\Help('Help'))
         ;

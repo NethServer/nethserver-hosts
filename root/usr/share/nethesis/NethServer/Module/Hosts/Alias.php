@@ -32,18 +32,21 @@ class Alias extends \Nethgui\Controller\TableController
     {
         $columns = array(
             'Key',
+            'Comment',
             'Actions',
         );
 
         $parameterSchema = array(
             array('hostname', Validate::HOSTNAME_FQDN, \Nethgui\Controller\Table\Modify::KEY),
+            array('Description', Validate::ANYTHING, \Nethgui\Controller\Table\Modify::FIELD, 'Comment'),
             array('HostType', '/^Self$/', \Nethgui\Controller\Table\Modify::FIELD),
         );
 
         $this
             ->setTableAdapter($this->getPlatform()->getTableAdapter('hosts', 'host', array('HostType' => '/^Self$/')))
-            ->setColumns($columns)
+            ->setColumns($columns)            
             ->addRowAction(new \Nethgui\Controller\Table\Modify('delete', $parameterSchema, 'Nethgui\Template\Table\Delete'))
+            ->addRowAction(new \Nethgui\Controller\Table\Modify('update', $parameterSchema, 'NethServer\Template\Hosts\Alias'))                        
             ->addTableAction(new \Nethgui\Controller\Table\Modify('create', $parameterSchema, 'NethServer\Template\Hosts\Alias'))
             ->addTableAction(new \Nethgui\Controller\Table\Help('Help'))
         ;

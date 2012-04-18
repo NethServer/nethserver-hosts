@@ -3,6 +3,7 @@
 echo $view->panel()
         ->insert($view->header('address')->setAttribute('template', 'Host entry'))
         ->insert($view->textInput('hostname'))
+        ->insert($view->textInput('Description'))
         ->insert($view->hidden('HostType'));
 
         

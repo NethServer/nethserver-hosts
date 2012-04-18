@@ -19,3 +19,4 @@ $L['host-delete_success'] = 'Host successfully deleted';
 $L['host-modify_failure'] = 'Host modification failed';
 $L['host-delete_failure'] = 'Host deletion failed';
 
+$L['Comment_label'] = 'Description';
