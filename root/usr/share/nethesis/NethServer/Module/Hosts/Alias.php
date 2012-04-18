@@ -36,7 +36,7 @@ class Alias extends \Nethgui\Controller\TableController
         );
 
         $parameterSchema = array(
-            array('hostname', Validate::HOSTNAME, \Nethgui\Controller\Table\Modify::KEY),
+            array('hostname', Validate::HOSTNAME_FQDN, \Nethgui\Controller\Table\Modify::KEY),
             array('HostType', '/^Self$/', \Nethgui\Controller\Table\Modify::FIELD),
         );
 

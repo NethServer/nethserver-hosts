@@ -37,7 +37,7 @@ class Dns extends \Nethgui\Controller\TableController
         );
 
         $parameterSchema = array(
-            array('hostname', Validate::HOSTNAME, \Nethgui\Controller\Table\Modify::KEY),
+            array('hostname', Validate::HOSTNAME_FQDN, \Nethgui\Controller\Table\Modify::KEY),
             array('IPAddress', Validate::IPv4, \Nethgui\Controller\Table\Modify::FIELD),
             array('HostType', '/^Remote$/', \Nethgui\Controller\Table\Modify::FIELD),
         );
