@@ -32,13 +32,13 @@ class Alias extends \Nethgui\Controller\TableController
     {
         $columns = array(
             'Key',
-            'Comment',
+            'Description',
             'Actions',
         );
 
         $parameterSchema = array(
             array('hostname', Validate::HOSTNAME_FQDN, \Nethgui\Controller\Table\Modify::KEY),
-            array('Description', Validate::ANYTHING, \Nethgui\Controller\Table\Modify::FIELD, 'Comment'),
+            array('Description', Validate::ANYTHING, \Nethgui\Controller\Table\Modify::FIELD),
             array('HostType', '/^Self$/', \Nethgui\Controller\Table\Modify::FIELD),
         );
 

@@ -6,8 +6,7 @@ $L['Dns_Title'] = 'DNS';
 $L['Dhcp_Title'] = 'DHCP Reservation';
 $L['Key_label'] = 'Nome host';
 $L['hostname_label'] = 'Nome host';
-$L['0_label'] = 'Indirizzo IP';
-$L['1_label'] = 'Indirizzo MAC';
+
 $L['Host entry'] = 'Nuovo host';
 $L['IPAddress_label'] = 'Indirizzo IP';
 $L['MACAddress_label'] = 'Indirizzo MAC';
@@ -22,7 +21,7 @@ $L['host-delete_failure'] = 'Eliminazione host fallita';
 $L['Empty table'] = 'Non hai ancora creato alcuna DHCP reservation';
 $L['Hosts_Tags'] = 'gestione host ip indirizzi dinamici riserva reservation mac alias dominio hostname';
 
-$L['Comment_label'] = 'Descrizione';
+$L['Description_label'] = 'Descrizione';
 
 
 

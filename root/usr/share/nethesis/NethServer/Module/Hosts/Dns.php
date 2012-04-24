@@ -33,14 +33,14 @@ class Dns extends \Nethgui\Controller\TableController
         $columns = array(
             'Key',
             'IPAddress',
-            'Comment',
+            'Description',
             'Actions',
         );
 
         $parameterSchema = array(
             array('hostname', Validate::HOSTNAME_FQDN, \Nethgui\Controller\Table\Modify::KEY),
             array('IPAddress', Validate::IPv4, \Nethgui\Controller\Table\Modify::FIELD),
-            array('Description', Validate::ANYTHING, \Nethgui\Controller\Table\Modify::FIELD, 'Comment'),
+            array('Description', Validate::ANYTHING, \Nethgui\Controller\Table\Modify::FIELD),
             array('HostType', '/^Remote$/', \Nethgui\Controller\Table\Modify::FIELD),            
         );
 

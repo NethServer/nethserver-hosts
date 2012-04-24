@@ -12,8 +12,8 @@
         my $IPAddress = $host->prop('IPAddress') || '';
         next unless ($IPAddress ne ''); # skip all entries without an IP
         
-	my $Comment = $host->prop('Comment') || "";
-        $OUT .= "# $Comment\n" unless ($Comment eq "");
+	my $Description = $host->prop('Description') || "";
+        $OUT .= "# $Description\n" unless ($Description eq "");
         $OUT .= "$IPAddress\t".$host->key."\n";
     }
     undef;      # We need a return value
