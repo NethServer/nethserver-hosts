@@ -3,7 +3,7 @@
 $L['Hosts_Title'] = 'Nomi host';
 $L['Alias_Title'] = 'Alias server';
 $L['Dns_Title'] = 'DNS';
-$L['Dhcp_Title'] = 'DHCP Reservation';
+
 $L['Key_label'] = 'Nome host';
 $L['hostname_label'] = 'Nome host';
 
