@@ -8,8 +8,8 @@ $L['Key_label'] = 'Nome host';
 $L['hostname_label'] = 'Nome host';
 
 $L['Host entry'] = 'Nuovo host';
-$L['IPAddress_label'] = 'Indirizzo IP';
-$L['MACAddress_label'] = 'Indirizzo MAC';
+$L['IpAddress_label'] = 'Indirizzo IP';
+$L['MacAddress_label'] = 'Indirizzo MAC';
 
 $L['host-create_success'] = 'Creazione host effettuata con successo';
 $L['host-create_failure'] = 'Creazione host fallita';

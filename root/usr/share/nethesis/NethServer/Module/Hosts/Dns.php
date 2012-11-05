@@ -32,28 +32,25 @@ class Dns extends \Nethgui\Controller\TableController
     {
         $columns = array(
             'Key',
-            'IPAddress',
+            'IpAddress',
             'Description',
             'Actions',
         );
 
         $parameterSchema = array(
             array('hostname', Validate::HOSTNAME_FQDN, \Nethgui\Controller\Table\Modify::KEY),
-            array('IPAddress', Validate::IPv4, \Nethgui\Controller\Table\Modify::FIELD),
+            array('IpAddress', Validate::IPv4, \Nethgui\Controller\Table\Modify::FIELD),
             array('Description', Validate::ANYTHING, \Nethgui\Controller\Table\Modify::FIELD),
-            array('HostType', '/^Remote$/', \Nethgui\Controller\Table\Modify::FIELD),            
         );
 
         $this
-            ->setTableAdapter($this->getPlatform()->getTableAdapter('hosts', 'host', array('HostType' => "/^Remote$/")))
+            ->setTableAdapter($this->getPlatform()->getTableAdapter('hosts', 'remote'))
             ->setColumns($columns)
             ->addRowAction(new \Nethgui\Controller\Table\Modify('update', $parameterSchema, 'NethServer\Template\Hosts\Dns'))
             ->addRowAction(new \Nethgui\Controller\Table\Modify('delete', $parameterSchema, 'Nethgui\Template\Table\Delete')) // Standard DELETE template
             ->addTableAction(new \Nethgui\Controller\Table\Modify('create', $parameterSchema, 'NethServer\Template\Hosts\Dns'))
             ->addTableAction(new \Nethgui\Controller\Table\Help('Help'))
         ;
-
-        $this->getAction('create')->setCreateDefaults(array('HostType' => 'Remote'));
 
         parent::initialize();
     }

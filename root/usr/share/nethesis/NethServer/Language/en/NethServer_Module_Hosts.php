@@ -5,12 +5,11 @@ $L['Alias_Title'] = 'Server alias';
 $L['Dns_Title'] = 'DNS';
 
 $L['Key_label'] = 'Hostname';
-$L['Host entry'] = 'Add host';
 $L['hostname_label'] = 'Hostname';
-$L['0_label'] = 'IP address';
-$L['1_label'] = 'MAC address';
-$L['IPAddress_label'] = 'IP address';
-$L['MACAddress_label'] = 'MAC address';
+
+$L['Host entry'] = 'Add host';
+$L['IpAddress_label'] = 'IP address';
+$L['MacAddress_label'] = 'MAC address';
 
 $L['host-create_success'] = 'Host successfully created';
 $L['host-create_failure'] = 'Host creation failed';
