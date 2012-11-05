@@ -1,0 +1,12 @@
+{
+    #
+    # 10hosts_self
+    #
+
+    use esmith::HostsDB;
+    my $hdb = esmith::HostsDB->open_ro() || return;
+
+    push @hostnames, map { $_->key } $hdb->get_all_by_prop('type', 'self');
+
+    '';
+}
