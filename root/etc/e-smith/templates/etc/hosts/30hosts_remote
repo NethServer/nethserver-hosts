@@ -5,6 +5,8 @@
     use esmith::HostsDB;
     my $hdb = esmith::HostsDB->open_ro() || return '# hosts DB is not available';
 
+    $OUT = '';
+
     foreach my $host ($hdb->get_all_by_prop('type', 'remote'))
     {
         my $IpAddress = $host->prop('IpAddress') || '';
@@ -16,9 +18,10 @@
         
 	my $Description = $host->prop('Description') || "";
         $OUT .= "# ${Description}\n" if($Description);
-
         $OUT .= sprintf "%-18s %s\n", $IpAddress, $host->key;
     }
 
-    '';
+    $OUT;
 }
+
+
