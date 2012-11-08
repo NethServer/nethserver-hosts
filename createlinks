@@ -3,16 +3,12 @@
 use strict;
 use esmith::Build::CreateLinks  qw(:all);
 
-event_templates($_, qw(
+event_templates('nethserver-hosts-update', qw(
                 /etc/hosts
-)) foreach (qw(
-    nethserver-hosts-update
-    nethserver-hosts-uninstall
 ));
 
 event_actions('nethserver-hosts-update', qw(
 	      initialize-default-databases 00
 ));
-
 
 
