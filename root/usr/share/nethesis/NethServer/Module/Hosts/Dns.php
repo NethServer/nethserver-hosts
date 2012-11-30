@@ -49,6 +49,7 @@ class Dns extends \Nethgui\Controller\TableController
             ->addRowAction(new \Nethgui\Controller\Table\Modify('update', $parameterSchema, 'NethServer\Template\Hosts\Dns'))
             ->addRowAction(new \Nethgui\Controller\Table\Modify('delete', $parameterSchema, 'Nethgui\Template\Table\Delete')) // Standard DELETE template
             ->addTableAction(new \Nethgui\Controller\Table\Modify('create', $parameterSchema, 'NethServer\Template\Hosts\Dns'))
+            ->addTableAction(new Dns\Configure())
             ->addTableAction(new \Nethgui\Controller\Table\Help('Help'))
         ;
 
