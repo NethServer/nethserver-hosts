@@ -1,0 +1,57 @@
+Name: nethserver-hosts
+Summary: NethServer module for managing hosts entries
+Version: @@VERSION@@
+Release: @@RELEASE@@%{?dist}
+License: GPL
+Source: %{name}-%{version}.tar.gz
+URL: http://dev.nethesis.it/projects/%{name}
+BuildArch: noarch
+
+Requires: nethserver-base
+
+BuildRequires: nethserver-devtools
+BuildRequires: perl, perl(File::Path)
+
+%description
+NethServer module to allow the configuration of the hosts database, which is
+used to build the DNS and DHCP configuration.
+
+%prep
+%setup
+
+%build
+perl createlinks
+mkdir -p root%{perl_vendorlib}
+mv -v esmith root%{perl_vendorlib}
+
+%post
+source /etc/nethserver/rpm_hook_functions
+event_queue add %{name}-update
+
+%postun
+source /etc/nethserver/rpm_hook_functions
+expand_template /etc/hosts
+
+%install
+rm -rf $RPM_BUILD_ROOT
+(cd root ; find . -depth -print | cpio -dump $RPM_BUILD_ROOT)
+rm -f %{name}-%{version}-%{release}-filelist
+%{genfilelist} $RPM_BUILD_ROOT \
+    > %{name}-%{version}-%{release}-filelist
+echo "%doc COPYING" >> %{name}-%{version}-%{release}-filelist
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%files -f %{name}-%{version}-%{release}-filelist
+%defattr(-,root,root)
+
+%changelog
+* Tue Mar 27 2012 Davide Principi <davide.principi@nethesis.it> - 6.2.0-1.nh
+- Depends on nethserver-dnsmasq
+
+* Tue Feb  7 2012 Davide <davide.principi@nethesis.it> - 1.0.0-1.nh
+- Increased nethserver-base version number requirement to 6.0.0
+
+* Fri Aug 05 2011 Giacomo Sanchietti <giacomo.sanchietti@gmail.com> 0.0.1-1.nh
+- First release
