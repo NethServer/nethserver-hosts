@@ -46,12 +46,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}-%{version}-%{release}-filelist
 %defattr(-,root,root)
 
+
+
 %changelog
-* Tue Mar 27 2012 Davide Principi <davide.principi@nethesis.it> - 6.2.0-1.nh
-- Depends on nethserver-dnsmasq
 
-* Tue Feb  7 2012 Davide <davide.principi@nethesis.it> - 1.0.0-1.nh
-- Increased nethserver-base version number requirement to 6.0.0
-
-* Fri Aug 05 2011 Giacomo Sanchietti <giacomo.sanchietti@gmail.com> 0.0.1-1.nh
-- First release
