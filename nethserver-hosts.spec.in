@@ -1,7 +1,7 @@
 Name: nethserver-hosts
 Summary: NethServer module for managing hosts entries
 Version: @@VERSION@@
-Release: @@RELEASE@@%{?dist}
+Release: @@RELEASE@@
 License: GPL
 Source: %{name}-%{version}.tar.gz
 URL: http://dev.nethesis.it/projects/%{name}
