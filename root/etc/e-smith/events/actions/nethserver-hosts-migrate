@@ -1,0 +1,87 @@
+#!/usr/bin/perl
+
+#
+# Copyright (C) 2013 Nethesis S.r.l.
+# http://www.nethesis.it - support@nethesis.it
+# 
+# This script is part of NethServer.
+# 
+# NethServer is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License,
+# or any later version.
+# 
+# NethServer is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with NethServer.  If not, see <http://www.gnu.org/licenses/>.
+#
+
+use esmith::DB::db;
+use strict;
+
+my $event = shift;
+my $sourceDir = shift;
+my $esmithDbDir = '/home/e-smith/db';
+my $errors = 0;
+if( ! -d $sourceDir) {
+    die("Could not find $sourceDir");
+}
+
+my $srcHostsDb = esmith::DB::db->open_ro(join('', $sourceDir, $esmithDbDir, '/hosts')) || die("Could not open source hosts database in $sourceDir \n");
+
+my $dstHostsDb = esmith::DB::db->open('hosts') || die("Could not open destination account db\n");
+
+my @srcHosts = $srcHostsDb->get_all_by_prop(type=>'host');
+
+#
+# Hosts migration
+# 
+foreach my $srcHost (@srcHosts) {
+    my $host = $srcHost->key;
+
+    # skip an existing host
+    if($dstHostsDb->get($host)) {
+	warn "[WARNING] Host $host is already registered in hosts DB\n";
+	next;
+    }
+
+   my $type = $srcHost->prop('HostType') || "";
+   my $desc =  $srcHost->prop('Comment') || "";
+   if ( $type eq "Self") {
+       $dstHostsDb->set_prop($host, "Description", $desc, type => 'self');
+   } elsif ( $type eq "Local") {
+       my $mac = $srcHost->prop('MACAddress') || "";
+       my $ip = $srcHost->prop('InternalIP') || "";
+       if ($ip eq "") {
+           warn "[WARNING] Host $host has no ip address\n";
+	   next;
+       }
+       $dstHostsDb->set_prop($host, "Description", $desc, type => 'local');
+       $dstHostsDb->set_prop($host, "IpAddress", $ip, type => 'local');
+       $dstHostsDb->set_prop($host, "MacAddress", $mac, type => 'local');
+   } elsif ( $type eq "Remote") {
+       my $ip = $srcHost->prop('ExternalIP') || "";
+       if($ip =~ /(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})/) {
+           $dstHostsDb->set_prop($host, "Description", $desc, type => 'remote');
+           $dstHostsDb->set_prop($host, "IpAddress", $ip, type => 'remote');
+       } else {
+           warn "[WARNING] Skipping CNAME $host\n";
+	   next;
+       }
+   } else {
+	warn "[WARNING] Invalid type for host $host\n";
+	next;
+
+   }
+}
+
+#
+# Update hosts file
+# 
+system("/sbin/e-smith/expand-template /etc/hosts");
+
+exit 0;

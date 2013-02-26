@@ -30,4 +30,4 @@ event_actions('nethserver-hosts-update', qw(
 	      initialize-default-databases 00
 ));
 
-
+event_actions('migration-import', 'nethserver-hosts-migrate' => 50);
