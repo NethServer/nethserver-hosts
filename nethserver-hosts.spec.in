@@ -49,4 +49,6 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Tue Mar 19 2013 Giacomo Sanchietti <giacomo.sanchietti@nethesis.it> - 1.0.1-1.ns6
+- Add migration code #1668 #1670
 
