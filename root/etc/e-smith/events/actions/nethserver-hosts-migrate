@@ -54,15 +54,19 @@ foreach my $srcHost (@srcHosts) {
    if ( $type eq "Self") {
        $dstHostsDb->set_prop($host, "Description", $desc, type => 'self');
    } elsif ( $type eq "Local") {
+       my $type = "local";
        my $mac = $srcHost->prop('MACAddress') || "";
        my $ip = $srcHost->prop('InternalIP') || "";
        if ($ip eq "") {
            warn "[WARNING] Host $host has no ip address\n";
 	   next;
        }
-       $dstHostsDb->set_prop($host, "Description", $desc, type => 'local');
-       $dstHostsDb->set_prop($host, "IpAddress", $ip, type => 'local');
-       $dstHostsDb->set_prop($host, "MacAddress", $mac, type => 'local');
+       if ($mac eq "") {
+           $type = "remote";
+       }
+       $dstHostsDb->set_prop($host, "Description", $desc, type => $type);
+       $dstHostsDb->set_prop($host, "IpAddress", $ip, type => $type);
+       $dstHostsDb->set_prop($host, "MacAddress", $mac, type => $type);
    } elsif ( $type eq "Remote") {
        my $ip = $srcHost->prop('ExternalIP') || "";
        if($ip =~ /(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})/) {
