@@ -63,7 +63,12 @@ foreach my $srcHost (@srcHosts) {
        }
        if ($mac eq "") {
            $type = "remote";
+       } else {
+           # remove domain
+           my @tmp = split(/\./, $host);
+           $host = $tmp[0];
        }
+
        $dstHostsDb->set_prop($host, "Description", $desc, type => $type);
        $dstHostsDb->set_prop($host, "IpAddress", $ip, type => $type);
        $dstHostsDb->set_prop($host, "MacAddress", $mac, type => $type);
