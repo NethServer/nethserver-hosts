@@ -25,12 +25,8 @@ mkdir -p root%{perl_vendorlib}
 mv -v esmith root%{perl_vendorlib}
 
 %post
-source /etc/nethserver/rpm_hook_functions
-event_queue add %{name}-update
 
 %postun
-source /etc/nethserver/rpm_hook_functions
-expand_template /etc/hosts
 
 %install
 rm -rf $RPM_BUILD_ROOT
