@@ -39,3 +39,7 @@ event_actions('nethserver-hosts-update', qw(
 ));
 
 event_actions('migration-import', 'nethserver-hosts-migrate' => 50);
+
+event_templates('nethserver-hosts-save', qw(
+    /etc/resolv.conf
+));

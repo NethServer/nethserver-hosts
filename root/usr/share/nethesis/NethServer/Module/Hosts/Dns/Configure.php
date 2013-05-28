@@ -35,7 +35,6 @@ class Configure extends \Nethgui\Controller\Table\AbstractAction
  
     public function initialize()
     {
-        #$this->declareParameter('NameServer1', Validate::SERVICESTATUS, array('configuration', 'dns', 'NameServers'));
         $this->nameservers = $this->getPlatform()->getIdentityAdapter('configuration', 'dns', 'NameServers', ',');
         $this->declareParameter('Dns1', Validate::IPv4, array());
         $this->declareParameter('Dns2', $this->createValidator()->orValidator(
@@ -43,13 +42,12 @@ class Configure extends \Nethgui\Controller\Table\AbstractAction
                                         ), 
                                         array()
         );
-
     }
 
     protected function onParametersSaved($changedParameters)
     {
         $this->nameservers->save();
-        $this->getPlatform()->signalEvent('nethserver-dnsmasq-save@post-process');
+        $this->getPlatform()->signalEvent('nethserver-hosts-save@post-process');
     }
 
     public function readDns1()
