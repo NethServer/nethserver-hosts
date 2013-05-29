@@ -24,10 +24,6 @@ perl createlinks
 mkdir -p root%{perl_vendorlib}
 mv -v esmith root%{perl_vendorlib}
 
-%post
-
-%postun
-
 %install
 rm -rf $RPM_BUILD_ROOT
 (cd root ; find . -depth -print | cpio -dump $RPM_BUILD_ROOT)
@@ -42,9 +38,11 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}-%{version}-%{release}-filelist
 %defattr(-,root,root)
 
-
-
 %changelog
+* Wed May 29 2013 Davide Principi <davide.principi@nethesis.it> - 1.0.3-1.ns6
+- /etc/hosts template (30hosts_remote): added short hostname aliases #1746
+- Bugfix #1983
+
 * Tue Apr 30 2013 Giacomo Sanchietti <giacomo.sanchietti@nethesis.it> - 1.0.2-1.ns6
 - Rebuild for automatic package handling. #1870
 - Various fixes #1834 #1845
