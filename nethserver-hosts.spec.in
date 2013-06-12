@@ -39,6 +39,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 
 %changelog
+* Wed Jun 12 2013 Giacomo Sanchietti <giacomo.sanchietti@nethesis.it> - 1.0.4-1.ns6
+- Remove /etc/ethers template #1917
+
 * Wed May 29 2013 Davide Principi <davide.principi@nethesis.it> - 1.0.3-1.ns6
 - /etc/hosts template (30hosts_remote): added short hostname aliases #1746
 - Bugfix #1983
