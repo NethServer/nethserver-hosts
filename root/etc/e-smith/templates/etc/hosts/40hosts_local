@@ -18,7 +18,7 @@
 
 	my $Description = $host->prop('Description') || "";
         $OUT .= "# ${Description}\n" if($Description);
-        $OUT .= sprintf "%-18s %s\n", $IpAddress, $host->key;
+        $OUT .= sprintf "%-18s %s\n", $IpAddress, join('.', $host->key, $DomainName);
     }
 
     $OUT;
