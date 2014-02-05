@@ -40,6 +40,11 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 
 %changelog
+* Wed Feb 05 2014 Davide Principi <davide.principi@nethesis.it> - 1.0.6-1.ns6
+- Show text labels in DNS & DHCP - Enhancement #2642 [NethServer]
+- RST format for help files - Enhancement #2627 [NethServer]
+- Update all inline help documentation - Task #1780 [NethServer]
+
 * Thu Oct 17 2013 Giacomo Sanchietti <giacomo.sanchietti@nethesis.it> - 1.0.5-1.ns6
 - Add domain to loca host records #2209
 
