@@ -8,8 +8,8 @@ Alias server
 ============
 
 Gli alias sono nomi alternativi per questo server. Per esempio, se il
-server si chiama *nethserver.nethesis.it*, un alias potrebbe essere
-*mail.nethesis.it*. Il server risponderà con il proprio indirizzo IP
+server si chiama *server.mycompany.com*, un alias potrebbe essere
+*mail.mycompany.com*. Il server risponderà con il proprio indirizzo IP
 alle richieste per il nome alias indicato.
 
 Crea / Modifica
@@ -34,7 +34,7 @@ DNS
 
 Il DNS (Domain Name System) si occupa della risoluzione dei nomi di
 dominio (es. www.nethesis.it) nei loro corrispettivi indirizzi numerici
-(es. 10.11.12.13) e viceversa. NethServer demanda la risoluzione dei
+(es. 10.11.12.13) e viceversa. il server demanda la risoluzione dei
 nomi ai server DNS configurati, ma permette di specificare indirizzi
 arbitrari per nomi selezionati. Per esempio, è possibile configurare il
 sistema per rispondere alle richieste per l'IP del sito facebook.com con
@@ -45,7 +45,7 @@ Configura
 ---------
 
 Fare clic su Configura per immettere gli indirizzi dei server DNS che
-NethServer contatterà per la risoluzione dei nomi.
+il server contatterà per la risoluzione dei nomi.
 
 DNS primario
     L'indirizzo del server principale da contattare per la risoluzione nomi (obbligatorio).
