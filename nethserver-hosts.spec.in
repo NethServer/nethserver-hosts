@@ -40,6 +40,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 
 %changelog
+* Wed Feb 26 2014 Davide Principi <davide.principi@nethesis.it> - 1.0.7-1.ns6
+- Help: remove NethServer name occurrences. Refs #2656
+
 * Wed Feb 05 2014 Davide Principi <davide.principi@nethesis.it> - 1.0.6-1.ns6
 - Show text labels in DNS & DHCP - Enhancement #2642 [NethServer]
 - RST format for help files - Enhancement #2627 [NethServer]
