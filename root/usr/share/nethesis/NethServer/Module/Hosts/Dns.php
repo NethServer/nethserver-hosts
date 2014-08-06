@@ -62,7 +62,7 @@ class Dns extends \Nethgui\Controller\TableController
         if($actionName === 'update') {
             $actionName = 'modify';
         }
-        $this->getPlatform()->signalEvent(sprintf('host-%s@post-process', $actionName));
+        $this->getPlatform()->signalEvent(sprintf('host-%s &', $actionName));
     }
 
 }

@@ -47,7 +47,7 @@ class Configure extends \Nethgui\Controller\Table\AbstractAction
     protected function onParametersSaved($changedParameters)
     {
         $this->nameservers->save();
-        $this->getPlatform()->signalEvent('nethserver-hosts-save@post-process');
+        $this->getPlatform()->signalEvent('nethserver-hosts-save');
     }
 
     public function readDns1()
