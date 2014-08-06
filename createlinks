@@ -42,3 +42,5 @@ event_actions('migration-import', 'nethserver-hosts-migrate' => 50);
 event_templates('nethserver-hosts-save', qw(
     /etc/resolv.conf
 ));
+
+safe_symlink('/bin/true', 'root/etc/e-smith/validators/host-delete/S10placeholder');
