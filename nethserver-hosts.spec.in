@@ -40,6 +40,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 
 %changelog
+* Wed Aug 20 2014 Davide Principi <davide.principi@nethesis.it> - 1.0.8-1.ns6
+- Firewall rules: preserve references to other DB records - Enhancement #2835 [NethServer]
+
 * Wed Feb 26 2014 Davide Principi <davide.principi@nethesis.it> - 1.0.7-1.ns6
 - Help: remove NethServer name occurrences. Refs #2656
 
