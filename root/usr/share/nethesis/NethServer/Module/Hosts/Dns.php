@@ -42,7 +42,6 @@ class Dns extends \Nethgui\Controller\TableController
             ->addRowAction(new \NethServer\Module\Hosts\Dns\Modify('update'))
             ->addRowAction(new \NethServer\Module\Hosts\Dns\Modify('delete'))
             ->addTableAction(new \NethServer\Module\Hosts\Dns\Modify('create'))
-            ->addTableAction(new Dns\Configure())
             ->addTableAction(new \Nethgui\Controller\Table\Help('Help'))
         ;
 

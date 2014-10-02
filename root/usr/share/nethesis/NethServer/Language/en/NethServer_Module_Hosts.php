@@ -2,11 +2,12 @@
 
 $L['0_label'] = 'IP address'; 
 $L['1_label'] = 'MAC address'; 
-$L['Alias_Title'] = 'Server alias'; 
+$L['ServerAlias_Title'] = 'Server alias'; 
 $L['Comment_label'] = 'Comment'; 
 $L['Description_label'] = 'Description'; 
 $L['Dns_Configure_header'] = 'Configure DNS servers'; 
-$L['Dns_Title'] = 'DNS'; 
+$L['Dns_Title'] = 'Hosts'; 
+$L['Configure_Title'] = 'DNS servers'; 
 $L['Empty table'] = 'You don\'t have any DNS record yet'; 
 $L['Host entry'] = 'Add host';
 $L['Hosts_Description'] = 'Mange host names';

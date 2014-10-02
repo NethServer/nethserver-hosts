@@ -1,5 +1,5 @@
 <?php
-namespace NethServer\Module\Hosts\Dns;
+namespace NethServer\Module\Hosts;
 
 /*
  * Copyright (C) 2012 Nethesis S.r.l.
@@ -23,12 +23,12 @@ namespace NethServer\Module\Hosts\Dns;
 use Nethgui\System\PlatformInterface as Validate;
 
 /**
- * TODO: add component description here
+ * Configure DNS servers
  *
  * @author Davide Principi <davide.principi@nethesis.it>
  * @since 1.0
  */
-class Configure extends \Nethgui\Controller\Table\AbstractAction
+class Configure extends \Nethgui\Controller\AbstractController
 {
 
     private $nameservers;   

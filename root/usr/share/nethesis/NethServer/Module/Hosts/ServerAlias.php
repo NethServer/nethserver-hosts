@@ -25,7 +25,7 @@ use Nethgui\System\PlatformInterface as Validate;
 /**
  * Implement gui module for localhost alias in /etc/hosts.
  */
-class Alias extends \Nethgui\Controller\TableController
+class ServerAlias extends \Nethgui\Controller\TableController
 {
 
     public function initialize()
@@ -45,8 +45,8 @@ class Alias extends \Nethgui\Controller\TableController
             ->setTableAdapter($this->getPlatform()->getTableAdapter('hosts', 'self'))
             ->setColumns($columns)            
             ->addRowAction(new \Nethgui\Controller\Table\Modify('delete', $parameterSchema, 'Nethgui\Template\Table\Delete'))
-            ->addRowAction(new \Nethgui\Controller\Table\Modify('update', $parameterSchema, 'NethServer\Template\Hosts\Alias'))                        
-            ->addTableAction(new \Nethgui\Controller\Table\Modify('create', $parameterSchema, 'NethServer\Template\Hosts\Alias'))
+            ->addRowAction(new \Nethgui\Controller\Table\Modify('update', $parameterSchema, 'NethServer\Template\Hosts\ServerAlias'))                        
+            ->addTableAction(new \Nethgui\Controller\Table\Modify('create', $parameterSchema, 'NethServer\Template\Hosts\ServerAlias'))
             ->addTableAction(new \Nethgui\Controller\Table\Help('Help'))
         ;
 
