@@ -1,34 +1,4 @@
-============
-DNS and DHCP
-============
-
-Management of server aliases, host names, and DHCP server.
-
-Server Alias
-============
-
-Aliases are alternate names for this server. For example, if the
-name of the server is *server.mycompany.com*, an alias may be
-*mail.mycompany.com*. The server will use its own IP address
-for the alias name.
-
-Create / Modify
----------------------
-
-Allows you to create a new alias for this server.
-
-Host Name
-    The host name that you want to add or modify. It can contain only
-    letters, numbers and hyphens, and must begin with a letter or a number.
-
-Description
-    An optional description useful to identify the alias.
-
-.. raw:: html
-
-   {{{INCLUDE NethServer_Module_Hosts_*.html}}}
-
-
+===
 DNS
 ===
 
@@ -41,10 +11,10 @@ system for responding to requests for facebook.com with the IP address
 0.0.0.0, achieving the effect of making the Facebook site unreachable.
 
 
-Configure
----------
+DNS servers
+===========
 
-Click Configure to enter the addresses of the DNS servers that
+Configure addresses of the DNS servers that
 the server will contact to resolve names.
 
 Primary DNS
@@ -53,8 +23,11 @@ Primary DNS
 Secondary DNS
     The address of the secondary server to be contacted in case the primary is not responding (optional).
 
+Hosts
+=====
+
 Create / Modify
----------------------
+---------------
 
 Click Create to assign a host name to an IP address. The
 server will return the IP address configured for requests of its name.
@@ -73,3 +46,23 @@ IP Address
 Description
     An optional comment for the host name (example:
     "Block facebook" or "video server").
+
+Server alias
+============
+
+Aliases are alternate names for this server. For example, if the
+name of the server is *server.mycompany.com*, an alias may be
+*mail.mycompany.com*. The server will use its own IP address
+for the alias name.
+
+Create / Modify
+---------------
+
+Allows you to create a new alias for this server.
+
+Host Name
+    The host name that you want to add or modify. It can contain only
+    letters, numbers and hyphens, and must begin with a letter or a number.
+
+Description
+    An optional description useful to identify the alias.
