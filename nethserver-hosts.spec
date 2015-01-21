@@ -1,6 +1,6 @@
 Name: nethserver-hosts
 Summary: NethServer module for managing hosts entries
-Version: 1.1.0
+Version: 1.1.1
 Release: 1%{?dist}
 License: GPL
 Source: %{name}-%{version}.tar.gz
@@ -40,6 +40,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 
 %changelog
+* Wed Jan 21 2015 Giacomo Sanchietti <giacomo.sanchietti@nethesis.it> - 1.1.1-1.ns6
+- DHCP LeaseStatus prop persisted to DB - Bug #2985 [NethServer]
+
 * Wed Oct 15 2014 Giacomo Sanchietti <giacomo.sanchietti@nethesis.it> - 1.1.0-1.ns6
 - Support DHCP on multiple interfaces - Feature #2849
 
