@@ -6,11 +6,8 @@ License: GPL
 Source: %{name}-%{version}.tar.gz
 URL: %{url_prefix}/%{name} 
 BuildArch: noarch
-
 Requires: nethserver-base
-
 BuildRequires: nethserver-devtools
-BuildRequires: perl, perl(File::Path)
 
 %description
 NethServer module to allow the configuration of the hosts database, which is
@@ -26,18 +23,14 @@ mkdir -p root%{perl_vendorlib}
 mv -v esmith root%{perl_vendorlib}
 
 %install
-rm -rf $RPM_BUILD_ROOT
-(cd root ; find . -depth -print | cpio -dump $RPM_BUILD_ROOT)
-rm -f %{name}-%{version}-%{release}-filelist
-%{genfilelist} $RPM_BUILD_ROOT \
-    > %{name}-%{version}-%{release}-filelist
-echo "%doc COPYING" >> %{name}-%{version}-%{release}-filelist
-
-%clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
+(cd root ; find . -depth -print | cpio -dump %{buildroot})
+%{genfilelist} %{buildroot} > %{name}-%{version}-%{release}-filelist
 
 %files -f %{name}-%{version}-%{release}-filelist
 %defattr(-,root,root)
+%doc COPYING
+%dir %{_nseventsdir}/%{name}-update
 
 %changelog
 * Wed Jan 21 2015 Giacomo Sanchietti <giacomo.sanchietti@nethesis.it> - 1.1.1-1.ns6
