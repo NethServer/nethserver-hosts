@@ -1,6 +1,6 @@
 Name: nethserver-hosts
 Summary: NethServer module for managing hosts entries
-Version: 1.1.1
+Version: 1.1.2
 Release: 1%{?dist}
 License: GPL
 Source: %{name}-%{version}.tar.gz
@@ -33,6 +33,9 @@ rm -rf %{buildroot}
 %dir %{_nseventsdir}/%{name}-update
 
 %changelog
+* Tue Sep 29 2015 Davide Principi <davide.principi@nethesis.it> - 1.1.2-1
+- Make Italian language pack optional - Enhancement #3265 [NethServer]
+
 * Wed Jan 21 2015 Giacomo Sanchietti <giacomo.sanchietti@nethesis.it> - 1.1.1-1.ns6
 - DHCP LeaseStatus prop persisted to DB - Bug #2985 [NethServer]
 
