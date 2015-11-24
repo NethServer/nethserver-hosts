@@ -44,3 +44,4 @@ event_templates('nethserver-hosts-save', qw(
 ));
 
 safe_symlink('/bin/true', 'root/etc/e-smith/validators/host-delete/S10placeholder');
+safe_symlink('../actions/fwobject-referenced', 'root/etc/e-smith/validators/host-delete/S20fwobject-reference');
