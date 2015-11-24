@@ -46,7 +46,7 @@ class Modify extends \Nethgui\Controller\Table\Modify
     public function validate(\Nethgui\Controller\ValidationReportInterface $report)
     {
         if ($this->getIdentifier() === 'delete') {
-            $v = $this->createValidator()->platform('host-delete');
+            $v = $this->createValidator()->platform('host-delete', 'hosts');
             if ( ! $v->evaluate($this->parameters['hostname'])) {
                 $report->addValidationError($this, 'Key', $v);
             }
