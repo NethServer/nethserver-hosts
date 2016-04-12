@@ -51,6 +51,13 @@ class Modify extends \Nethgui\Controller\Table\Modify
                 $report->addValidationError($this, 'Key', $v);
             }
         }
+
+        #a key can be  'remote or self' and must not be overwritten
+        $keyExists = $this->getPlatform()->getDatabase('hosts')->getType($this->parameters['hostname']) != '';
+        if($this->getIdentifier() === 'create' && $keyExists) {
+        $report->addValidationErrorMessage($this, 'hostname', 'Service_key_exists_message');
+        }
+
         parent::validate($report);
     }
 
