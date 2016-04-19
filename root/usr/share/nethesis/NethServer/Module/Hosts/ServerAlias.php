@@ -2,7 +2,7 @@
 namespace NethServer\Module\Hosts;
 
 /*
- * Copyright (C) 2011 Nethesis S.r.l.
+ * Copyright (C) 2016 Nethesis S.r.l.
  * 
  * This script is part of NethServer.
  * 
@@ -36,30 +36,16 @@ class ServerAlias extends \Nethgui\Controller\TableController
             'Actions',
         );
 
-        $parameterSchema = array(
-            array('hostname', Validate::HOSTNAME_FQDN, \Nethgui\Controller\Table\Modify::KEY),
-            array('Description', Validate::ANYTHING, \Nethgui\Controller\Table\Modify::FIELD),
-        );
-
         $this
             ->setTableAdapter($this->getPlatform()->getTableAdapter('hosts', 'self'))
             ->setColumns($columns)            
-            ->addRowAction(new \Nethgui\Controller\Table\Modify('delete', $parameterSchema, 'Nethgui\Template\Table\Delete'))
-            ->addRowAction(new \Nethgui\Controller\Table\Modify('update', $parameterSchema, 'NethServer\Template\Hosts\ServerAlias'))                        
-            ->addTableAction(new \Nethgui\Controller\Table\Modify('create', $parameterSchema, 'NethServer\Template\Hosts\ServerAlias'))
+            ->addRowAction(new \NethServer\Module\Hosts\ServerAlias\Modify('update'))
+            ->addRowAction(new \NethServer\Module\Hosts\ServerAlias\Modify('delete'))
+            ->addTableAction(new \NethServer\Module\Hosts\ServerAlias\Modify('create'))
             ->addTableAction(new \Nethgui\Controller\Table\Help('Help'))
         ;
 
         parent::initialize();
-    }
-
-    public function onParametersSaved(\Nethgui\Module\ModuleInterface $currentAction, $changes, $parameters)
-    {
-        $actionName = $currentAction->getIdentifier();
-        if($actionName === 'update') {
-            $actionName = 'modify';
-        }        
-        $this->getPlatform()->signalEvent(sprintf('host-%s &', $actionName));
     }
 
 }
