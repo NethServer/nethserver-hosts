@@ -1,5 +1,5 @@
 <?php
-namespace NethServer\Module\Hosts;
+namespace NethServer\Module\NetworkAdapter;
 
 /*
  * Copyright (C) 2012 Nethesis S.r.l.
@@ -28,7 +28,7 @@ use Nethgui\System\PlatformInterface as Validate;
  * @author Davide Principi <davide.principi@nethesis.it>
  * @since 1.0
  */
-class Configure extends \Nethgui\Controller\AbstractController
+class DNS extends \Nethgui\Controller\Table\AbstractAction
 {
 
     private $nameservers;   
