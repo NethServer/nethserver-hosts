@@ -1,7 +1,7 @@
 [main]
 host = https://www.transifex.com
 
-[nethserver.Hosts]
+[nethserver-v6.Hosts]
 source_file = root/usr/share/nethesis/NethServer/Language/en/NethServer_Module_Hosts.php
 source_lang = en
 type = PHP_ALT_ARRAY
