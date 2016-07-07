@@ -1,6 +1,6 @@
 Name: nethserver-hosts
 Summary: NethServer module for managing hosts entries
-Version: 1.1.4
+Version: 1.2.0
 Release: 1%{?dist}
 License: GPL
 Source: %{name}-%{version}.tar.gz
@@ -33,6 +33,9 @@ rm -rf %{buildroot}
 %dir %{_nseventsdir}/%{name}-update
 
 %changelog
+* Thu Jul 07 2016 Stefano Fancello <stefano.fancello@nethesis.it> - 1.2.0-1
+- First NS7 release
+
 * Wed Apr 27 2016 Giacomo Sanchietti <giacomo.sanchietti@nethesis.it> - 1.1.4-1
 - DNS: GUI not updated and missing validator - Bug #3375 [NethServer]
 
