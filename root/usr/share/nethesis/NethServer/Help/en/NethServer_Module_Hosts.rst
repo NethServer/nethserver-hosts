@@ -11,18 +11,6 @@ system for responding to requests for facebook.com with the IP address
 0.0.0.0, achieving the effect of making the Facebook site unreachable.
 
 
-DNS servers
-===========
-
-Configure addresses of the DNS servers that
-the server will contact to resolve names.
-
-Primary DNS
-    The address of the primary server to contact for resolving names (mandatory).
-
-Secondary DNS
-    The address of the secondary server to be contacted in case the primary is not responding (optional).
-
 Hosts
 =====
 
