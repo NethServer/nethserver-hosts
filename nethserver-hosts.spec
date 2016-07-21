@@ -1,6 +1,6 @@
 Name: nethserver-hosts
 Summary: NethServer module for managing hosts entries
-Version: 1.2.0
+Version: 1.2.1
 Release: 1%{?dist}
 License: GPL
 Source: %{name}-%{version}.tar.gz
@@ -33,6 +33,9 @@ rm -rf %{buildroot}
 %dir %{_nseventsdir}/%{name}-update
 
 %changelog
+* Thu Jul 21 2016 Stefano Fancello <stefano.fancello@nethesis.it> - 1.2.1-1
+- Move "DNS servers"  inline documentation  to Network page. - Bug NethServer/dev#5060
+
 * Thu Jul 07 2016 Stefano Fancello <stefano.fancello@nethesis.it> - 1.2.0-1
 - First NS7 release
 
