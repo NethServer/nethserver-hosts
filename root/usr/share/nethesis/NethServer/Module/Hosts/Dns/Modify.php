@@ -36,10 +36,12 @@ class Modify extends \Nethgui\Controller\Table\Modify
     {
         $parameterSchema = array(
             array('hostname', Validate::HOSTNAME_FQDN, \Nethgui\Controller\Table\Modify::KEY),
+            array('WildcardMode', Validate::SERVICESTATUS, \Nethgui\Controller\Table\Modify::FIELD),
             array('IpAddress', Validate::IPv4, \Nethgui\Controller\Table\Modify::FIELD),
             array('Description', Validate::ANYTHING, \Nethgui\Controller\Table\Modify::FIELD),
         );
         $this->setSchema($parameterSchema);
+        $this ->setDefaultValue('WildcardMode', 'disabled');
         parent::initialize();
     }
 
