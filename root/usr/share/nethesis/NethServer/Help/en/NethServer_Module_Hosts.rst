@@ -28,7 +28,7 @@ Host Name
     which take precedence over the provider's DNS server (see
     facebook.com example above).
 
-Match all subdomains
+Wildcard DNS record
     Create a record in the DNS zone
     that will match requests for all subdomain names
     (for example sub.domains.com will match domains.com)
