@@ -10,6 +10,8 @@
     foreach my $host ($hdb->get_all_by_prop('type', 'remote'))
     {
         my $IpAddress = $host->prop('IpAddress') || '';
+        my $wildcard =  $host->prop('WildcardMode') || 'disabled';
+
 	my $shortName = '';
 
 	my @parts = split(/\./, $host->key, 2);
@@ -23,7 +25,11 @@
 	    # skip all entries without an IP
 	    next;
 	}
-        
+        if ($wildcard eq 'enabled'){
+            #dnsmasq will mange this wildcard dns host
+            next;
+        }
+
 	my $Description = $host->prop('Description') || "";
         $OUT .= "# ${Description}\n" if($Description);
         $OUT .= sprintf "%-18s %s%s\n", $IpAddress, $host->key, (' ' . $shortName);

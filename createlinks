@@ -24,6 +24,7 @@ use esmith::Build::CreateLinks  qw(:all);
 
 my @templates = (qw(
                 /etc/hosts
+                /etc/dnsmasq.conf
 ));
 
 event_templates($_, @templates) foreach (qw(

@@ -31,6 +31,7 @@ class Dns extends \Nethgui\Controller\TableController
     {
         $columns = array(
             'Key',
+            'WildcardMode',
             'IpAddress',
             'Description',
             'Actions',
@@ -48,4 +49,11 @@ class Dns extends \Nethgui\Controller\TableController
         parent::initialize();
     }
 
+    public function prepareViewForColumnWildcardMode(\Nethgui\Controller\Table\Read $action, \Nethgui\View\ViewInterface $view, $key, $values, &$rowMetadata)
+    {
+        if ($values['WildcardMode'] == 'enabled' ) {
+            return $view->translate('Enabled_label');
+        }
+        return $view->translate('Disabled_label');
+    }
 }

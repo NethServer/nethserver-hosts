@@ -7,6 +7,7 @@ Source: %{name}-%{version}.tar.gz
 URL: %{url_prefix}/%{name} 
 BuildArch: noarch
 Requires: nethserver-base
+Requires: nethserver-dnsmasq 
 BuildRequires: nethserver-devtools
 
 %description

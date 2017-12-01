@@ -12,7 +12,10 @@ if ($view->getModule()->getIdentifier() == 'update') {
 echo $view->header('hostname')->setAttribute('template', $T($template));
 
 echo $view->panel()
+        ->insert($view->columns()
         ->insert($view->textInput('hostname', $keyFlags))
+        ->insert($view->checkbox('WildcardMode', 'enabled')->setAttribute('uncheckedValue', 'disabled'))
+        )
         ->insert($view->textInput('IpAddress'))
         ->insert($view->textInput('Description'))
 ;
