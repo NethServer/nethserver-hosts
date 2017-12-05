@@ -31,8 +31,8 @@ class Dns extends \Nethgui\Controller\TableController
     {
         $columns = array(
             'Key',
-            'WildcardMode',
             'IpAddress',
+            'WildcardMode',
             'Description',
             'Actions',
         );
