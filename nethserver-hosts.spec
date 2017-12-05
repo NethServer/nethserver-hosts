@@ -1,6 +1,6 @@
 Name: nethserver-hosts
 Summary: NethServer module for managing hosts entries
-Version: 1.2.1
+Version: 1.2.2
 Release: 1%{?dist}
 License: GPL
 Source: %{name}-%{version}.tar.gz
@@ -34,6 +34,9 @@ rm -rf %{buildroot}
 %dir %{_nseventsdir}/%{name}-update
 
 %changelog
+* Tue Dec 05 2017 Giacomo Sanchietti <giacomo.sanchietti@nethesis.it> - 1.2.2-1
+- Wildcard domain feature in dnsmasq - NethServer/dev#5390
+
 * Thu Jul 21 2016 Stefano Fancello <stefano.fancello@nethesis.it> - 1.2.1-1
 - Move "DNS servers"  inline documentation  to Network page. - Bug NethServer/dev#5060
 
